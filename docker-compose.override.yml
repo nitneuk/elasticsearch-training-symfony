@@ -31,3 +31,12 @@ services:
     ports:
       - "5432:5432"
 ###< doctrine/doctrine-bundle ###
+
+  elasticsearch:
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+  
+  kibana:
+    ports:
+      - "5601:5601"
