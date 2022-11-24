@@ -51,4 +51,13 @@ class Author
     {
         return $this->email;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'title' => $this->title,
+            'fullname' => $this->fullName,
+            'email' => $this->email,
+        ];
+    }
 }

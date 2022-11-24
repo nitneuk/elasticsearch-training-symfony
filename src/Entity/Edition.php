@@ -38,4 +38,12 @@ class Edition
     {
         return $this->location;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'location' => \json_decode($this->location),
+        ];
+    }
 }

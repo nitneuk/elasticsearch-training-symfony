@@ -17,6 +17,9 @@ class Rating
     #[ORM\Column(length: 50)]
     private string $username;
 
+    #[ORM\ManyToOne(targetEntity: Book::class, inversedBy: 'ratings')]
+    private $book;
+
     public function __construct(int $note, string $username)
     {
         $this->id = new UuidV6();
@@ -37,5 +40,13 @@ class Rating
     public function getUsername(): string
     {
         return $this->username;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'rating' => $this->note,
+            'username' => $this->username,
+        ];
     }
 }
