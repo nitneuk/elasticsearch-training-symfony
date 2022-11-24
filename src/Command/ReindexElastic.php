@@ -21,13 +21,12 @@ class ReindexElastic extends Command
     private const ALIAS = 'library';
     private const BATCH = 100;
 
-    private Client $elastic;
     private SymfonyStyle $io;
 
-    public function __construct(private EntityManagerInterface $entityManager)
-    {
-        $this->elastic = new Client('elasticsearch:9200');
-
+    public function __construct(
+        private Client $elastic,
+        private EntityManagerInterface $entityManager
+    ) {
         parent::__construct();
     }
 
