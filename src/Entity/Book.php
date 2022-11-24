@@ -66,7 +66,9 @@ class Book
         $this->releaseDate = $releaseDate;
         $this->price = $price;
         $this->sales = $sales;
-        $this->ratings = $ratings;
+        $this->ratings = $ratings->map(
+            fn(Rating $rating): Rating => $rating->setBook($this)
+        );
     }
 
     public function getId(): UuidV6

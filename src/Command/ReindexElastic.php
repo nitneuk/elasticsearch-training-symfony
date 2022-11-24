@@ -32,7 +32,19 @@ class ReindexElastic extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        // TODO : implement
+        $index = $this->elastic->getIndex('library-datedujour');
+
+//        Etape 1 création de l'index avec son mapping
+//        $index->create(...);
+
+//        Etape 2 ajout d'un alias "library_indexing"
+//        $index->addAlias()
+
+//        Etape 3 indexation de tous les livres stockés dans PostgreSQL
+
+//        Etape 4 suppression de l'alias "library_indexing"
+
+//        Etape 5 ajout de l'alias "library"
 
         return Command::SUCCESS;
     }

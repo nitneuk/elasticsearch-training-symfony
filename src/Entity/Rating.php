@@ -18,7 +18,7 @@ class Rating
     private string $username;
 
     #[ORM\ManyToOne(targetEntity: Book::class, inversedBy: 'ratings')]
-    private $book;
+    private Book $book;
 
     public function __construct(int $note, string $username)
     {
@@ -40,6 +40,13 @@ class Rating
     public function getUsername(): string
     {
         return $this->username;
+    }
+
+    public function setBook(Book $book): self
+    {
+        $this->book = $book;
+
+        return $this;
     }
 
     public function toArray(): array
