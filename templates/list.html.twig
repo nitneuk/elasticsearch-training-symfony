@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% for book in books %}
+        <h4><a href="/books/{{ book.id }}">{{ book.title | raw}}</a></h4>
+        <h5>{{ book.authorFullName |raw }}</h5>
+        <p>{{ book.description | raw }}</p>
+        <p><strong>Category:</strong> {{ book.category }} > {{ book.subCategory }}</p>
+        <p><strong>Edition:</strong> {{ book.edition }}</p>
+        <strong>Price: {{ book.price }} €</strong>
+        <hr/>
+    {% endfor %}
+{% endblock %}

@@ -23,6 +23,11 @@ services:
     Elastica\Client:
         arguments:
             $config: '%env(resolve:ELASTICSEARCH_URL)%'
+            
+    Elastica\Index:
+        arguments:
+            $client: '@Elastica\Client'
+            $name: '%env(resolve:ELASTICSEARCH_INDEX_ALIAS)%'
     
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

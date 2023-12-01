@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <form id="form_rating" action="/books/create">
+        <input type="text" name="title" placeholder="Title" required/>
+        <input type="text" name="description" placeholder="Description" required>
+        <input type="text" name="authorFullName" placeholder="Author fullName" required>
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="text" name="subCategory" placeholder="SubCategory" required>
+        <input type="text" name="edition" placeholder="edition" required>
+        <input type="text" name="price" placeholder="price" required>
+        <input type="submit" />
+    </form>
+{% endblock %}

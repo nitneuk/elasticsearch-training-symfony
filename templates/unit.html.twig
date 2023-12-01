@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <p><strong>Category:</strong> {{ book.category }} > {{ book.subCategory }}</p>
+    <h4>{{ book.title | raw}}</h4>
+    <h5>{{ book.authorFullName |raw }}</h5>
+    <p>{{ book.description | raw }}</p>
+    <p><strong>Edition:</strong> {{ book.edition }}</p>
+    <p><strong>Price: {{ book.price }} €</strong></p>
+    <p>
+        <strong>Ratings:</strong><br/>
+        {% for rating in book.ratings  %}
+           <strong>{{ rating.username }}:</strong> {{ rating.rating }}/5<br/>
+        {% endfor %}
+    </p>
+    <form id="form_rating" action="/books/{{ book.id }}">
+        <input type="text" name="username" placeholder="Username"/>
+        <input type="text" name="note" placeholder="Note /5" pattern="(1|2|3|4|5)" required>
+        <input type="submit" />
+    </form>
+{% endblock %}
